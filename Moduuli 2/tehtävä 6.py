@@ -1,8 +1,3 @@
 import random
-
-low=0
-high=9
-
-number = random.randint(low, high)
-
-print ("number")
+number = random.randint(0,9)
+print(number,number,number)
