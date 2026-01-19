@@ -9,3 +9,5 @@ else:
 
 if ika >= 80:
     print("olet eläkkeellä")
+
+elif
