@@ -1,14 +1,12 @@
-def login(username, password):
-    if username == "python" and password == "rules":
-        return True
+count=0
+while count < 4:
+    username = input('Enter username: ')
+    password = input('Enter password: ')
+    if password=='rules' and username=='python':
+        print('Welcome')
+        break
     else:
-        return False
-
-username = input("Enter Username: ")
-password = input("Enter Password: ")
-
-if login(username, password):
-    print("Welcome")
-else:
-    print("Access denied")
-
+        print('Incorrect username or password. Please try again. ')
+        count += 1
+    if count == 4:
+        print("Enter username: Enter password: Access denied")
