@@ -1,28 +1,28 @@
+print()
 airports = {}
-icao = {}
-while True:
 
+while True:
+    print("Airport Data Management")
     print("1. Enter a new airport")
     print("2. Fetch airport information")
     print("3. Quit")
 
-    choise = int(input("Enter your choice: "))
+    choose = int(input("Please choose an option (1-3): "))
 
-    if choise == 1:
-        icao = input("Enter_the_ICAO_code: ")
+    if choose == 1:
+        icao = input("Enter the ICAO code: ")
         name = input("Enter the airport name: ")
         airports[icao] = name
-        print(f"Airport {name} Airport with ICAO code {icao} has been added.")
+        print(f"Airport {name} with ICAO code {icao} has been added.")
 
-    if choise == 2:
-        koodi = input("Enter_the_ICAO_code: ")
-        print("Enter_the_ICAO_code")
+    elif choose == 2:
+        koodi = input("Enter the ICAO code: ")
         if koodi in airports:
-            print(f"The airport is {airports[koodi]}")
+            print(f"The airport with ICAO code {koodi} is {airports[koodi]}.")
         else:
-                print("Airport not found.")
+            print(f"No airport found with ICAO code {koodi}.")
 
 
-    if (choise == 3):
+    elif choose == 3:
         print("Thank you for using the Airport Data Management system. Goodbye!")
         break
