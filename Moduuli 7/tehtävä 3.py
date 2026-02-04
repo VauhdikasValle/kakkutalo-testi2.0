@@ -1,8 +1,7 @@
-print()
 airports = {}
 
 while True:
-    print("Airport Data Management")
+    print("\nAirport Data Management")
     print("1. Enter a new airport")
     print("2. Fetch airport information")
     print("3. Quit")
@@ -10,13 +9,13 @@ while True:
     choose = int(input("Please choose an option (1-3): "))
 
     if choose == 1:
-        icao = input("Enter the ICAO code: ")
+        icao = input("Enter the ICAO code: ").upper()
         name = input("Enter the airport name: ")
         airports[icao] = name
         print(f"Airport {name} with ICAO code {icao} has been added.")
 
     elif choose == 2:
-        koodi = input("Enter the ICAO code: ")
+        koodi = input("Enter the ICAO code: ").upper()
         if koodi in airports:
             print(f"The airport with ICAO code {koodi} is {airports[koodi]}.")
         else:
