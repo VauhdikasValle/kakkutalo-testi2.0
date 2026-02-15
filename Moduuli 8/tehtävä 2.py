@@ -9,27 +9,27 @@ yhteys = mysql.connector.connect(
     autocommit=True
 )
 
-country_code = input("Enter the country code (e.g., FI for Finland): ")
-sql = f"SELECT type, COUNT(*) FROM airport WHERE airport.iso_country = '{country_code}' GROUP BY type"
 
 def get_airports_by_country(country_code):
     kursori = yhteys.cursor()
-    kursori.execute(sql)
+    sql = "SELECT type, COUNT(*) FROM airport WHERE iso_country = %s GROUP BY type"
+    kursori.execute(sql, (country_code,))
     tulos = kursori.fetchall()
+    kursori.close()
     return tulos
 
+
 def run_country_program():
-    airport_types = []
-    airport_types.append(get_airports_by_country())
-    for n in airport_types:
-        print(f"{n}")
+    koodi = input("Enter the country code (e.g., FI for Finland): ").upper()
+    lentokentat = get_airports_by_country(koodi)
+
+
+    if len(lentokentat) == 0:
+        print(f"No airports found for country code '{koodi}''.")
+    else:
+        print(f"\nAirports in {koodi}:")
+        for rivi in lentokentat:
+            print(f"{rivi[1]} {rivi[0]} airports")
+
+
 run_country_program()
-
-
-
-# if not tulos:
-#     print(f"No airports found for country code: {country_code.upper()}")
-# else:
-#     for now in tulos:
-#         print(f"Airport name: {now[0]}")
-#         print(f"Location: {now[1]}")
